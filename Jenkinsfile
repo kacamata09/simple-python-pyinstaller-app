@@ -15,7 +15,7 @@ pipeline {
         stage('Test') { 
             steps {
                 // sh 'chmod o+w ~/.local'
-                sh 'pip install pytest'
+                sh 'pip install --user pytest'
                 sh 'pytest --junit-xml test-reports/results.xml sources/test_calc.py'
             }
         }
