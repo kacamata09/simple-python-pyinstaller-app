@@ -22,12 +22,15 @@
 // }
 
 node {
-    docker.image('python:alpine3.19').withRun('-p 3000:3000') 
-    environment {
-        PATH = "/usr/local/bin/python3:$PATH"
-    } 
+    // environment {
+    //     PATH = "/usr/local/bin/python3:$PATH"
+    // } 
 
-    {
+    docker.image('python:alpine3.19').withRun('-p 3000:3000') {
+
+        stage('Debugging') {
+            sh 'which python3'
+        }
         
         stage('Build') {
             sh 'python3 -m py_compile sources/add2vals.py sources/calc.py' 
