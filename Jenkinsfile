@@ -19,7 +19,7 @@ pipeline {
         }
 
     }
-// }
+}
 
 // node {
 //     environment {
