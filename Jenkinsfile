@@ -22,11 +22,11 @@
 // }
 
 node {
-    // environment {
-    //     PATH = "/usr/local/bin/python3:$PATH"
-    // } 
+    environment {
+        PATH = "/usr/local/bin/python3"
+    } 
 
-    docker.image('python:alpine-3.19').withRun('-p 3000:3000') {
+    docker.image('python:alpine3.19').withRun('-p 3000:3000') {
 
         stage('Debugging') {
             sh 'which python'
