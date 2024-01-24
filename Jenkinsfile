@@ -29,7 +29,7 @@ node {
     docker.image('python:alpine3.19').withRun('-p 3000:3000') {
 
         stage('Debugging') {
-            sh 'which python3'
+            sh 'which python'
         }
         
         stage('Build') {
