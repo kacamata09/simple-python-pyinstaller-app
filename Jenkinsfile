@@ -25,7 +25,7 @@ node {
     docker.image('python:alpine3.19').withRun('-p 3000:3000') {
         
         stage('Build') {
-            sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
+            sh 'python3 -m py_compile sources/add2vals.py sources/calc.py' 
             stash name: 'compiled-results', includes: 'sources/*.py*'
         }
         
