@@ -24,7 +24,7 @@
 node {
     environment {
         PATH = "/usr/local/bin/python3:$PATH"
-    } 
+    } 
 
     docker.image('python:alpine3.19').withRun('-p 3000:3000') {
         
