@@ -1,22 +1,22 @@
 pipeline {
     agent {
         docker {
-            // image 'python:alpine3.19'
-            image 'python:2-alpine'
+            image 'python:alpine3.19'
+            // image 'python:2-alpine'
             args '-p 3000:3000'
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py' 
+                sh 'python3 -m py_compile sources/add2vals.py sources/calc.py' 
                 stash(name: 'compiled-results', includes: 'sources/*.py*')
             }
         }
         stage('Test') { 
             steps {
                 // sh 'chmod o+w ~/.local'
-                sh 'pip install pytest'
+                sh 'pip3 install pytest'
                 sh 'pytest --junit-xml test-reports/results.xml sources/test_calc.py'
             }
         }
